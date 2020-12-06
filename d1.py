@@ -1,3 +1,5 @@
+from math import prod
+
 import utils
 
 all_values = [int(r) for r in open('d1')]
@@ -25,12 +27,12 @@ def aggregate(deepness, start_index=None, current_sum=0):
 
 def part1():
     indices = aggregate(2)
-    return utils.prod([all_values[i] for i in indices])
+    return prod([all_values[i] for i in indices])
 
 
 def part2():
     indices = aggregate(3)
-    return utils.prod([all_values[i] for i in indices])
+    return prod([all_values[i] for i in indices])
 
 
 print(part1())
