@@ -100,7 +100,8 @@ def execute_with_index_switch(state, index_to_switch, switched_index):
     state.switch_back(switched_index)
     switched_index = state.switch(index_to_switch)
     state.reset()
-    state.execute_to_termination()
+    if switched_index:
+        state.execute_to_termination()
     return switched_index
 
 
