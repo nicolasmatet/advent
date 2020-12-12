@@ -64,10 +64,6 @@ class Ship:
         instruction_callback = instruction_set[instruction_code]
         instruction_callback(instruction_value)
 
-    def execute_instruction_waypoint(self, instruction_code, instruction_value):
-        instruction_callback = self.instructions_waypoint[instruction_code]
-        instruction_callback(instruction_value)
-
     def get_distance(self, distance=norm0):
         return distance(*self.position)
 
@@ -92,7 +88,7 @@ def part1(filename):
 
 def part2(filename):
     ship = Ship()
-    instructions_set = ship.instructions
+    instructions_set = ship.instructions_waypoint
     execute_all_instructions(filename, ship, instructions_set)
     return ship.get_distance()
 
