@@ -66,3 +66,19 @@ print(part2())
 
 assert part1() == 2368
 assert part2() == 1727094849536
+
+
+def part3():
+    output_voltages = get_sorted_voltages('d10')
+    g = nx.DiGraph()
+    g.add_nodes_from(output_voltages)
+    g.add_edges_from(get_digraph_edges(output_voltages))
+    nx.set_node_attributes(g, None, "count_paths")
+
+    def dist(n1, n2):
+        return 1
+
+    return nx.astar_path(g, output_voltages[0], output_voltages[-1], dist)
+
+
+print(len(part3()))
